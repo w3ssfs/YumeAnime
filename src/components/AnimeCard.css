@@ -1,0 +1,244 @@
+:root {
+  --dark-background-500: #3c4558;
+  --dark-background-400: #262f43;
+  --dark-background-300: #1f2635;
+  --dark-background-200: #161922;
+  --dark-background-100: #121419;
+  --dark-background-000: #0f1115;
+  --dark-background-button-primary-default: var(--primary-500);
+  --dark-background-button-primary-hover: var(--primary-600);
+  --dark-background-language-dotnet: #491756;
+  --dark-primary-900: #041354;
+  --dark-primary-800: #071b66;
+  --dark-primary-700: #0c287f;
+  --dark-primary-600: #113698;
+  --dark-primary-500: #1847b1;
+  --dark-primary-400: #4976d0;
+  --dark-primary-300: #6f9be7;
+  --dark-primary-200: #a1c4f7;
+  --dark-primary-100: #dbe6ff;
+  /* --dark-primary-000: #F1F6FF; */
+  --dark-typography-100: var(--primary-100);
+  --dark-typography-200: var(--primary-200);
+  --dark-typography-300: #99a8c9;
+  --dark-typography-400: #8998b8;
+  --dark-border-patreon-gradient-color-start: #ff424d;
+  --dark-border-patreon-gradient-color-stop: var(--dark-primary-500);
+  --dark-border-default-gradient-color-start: var(--dark-primary-200);
+  --dark-border-default-gradient-color-stop: var(--dark-primary-500);
+  --dark-cursor-color: var(--typography-300);
+  --border-radius-small: 8px;
+  --border-radius-large: 12px;
+  --type-size-heading-1: 80px;
+  --type-size-heading-2: 36px;
+  --type-size-heading-3: 24px;
+  --type-size-body-content: 16px;
+  --type-size-body-assistive: 12px;
+  --page-width: 1600px;
+  --content-width: 1300px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-500: var(--dark-background-500);
+    --background-400: var(--dark-background-400);
+    --background-300: var(--dark-background-300);
+    --background-200: var(--dark-background-200);
+    --background-100: var(--dark-background-100);
+    --background-000: var(--dark-background-000);
+    --background-button-primary-default: var(
+      --dark-background-button-primary-default
+    );
+    --background-button-primary-hover: var(
+      --dark-background-button-primary-hover
+    );
+    --primary-900: var(--dark-primary-900);
+    --primary-800: var(--dark-primary-800);
+    --primary-700: var(--dark-primary-700);
+    --primary-600: var(--dark-primary-600);
+    --primary-500: var(--dark-primary-500);
+    --primary-400: var(--dark-primary-400);
+    --primary-300: var(--dark-primary-300);
+    --primary-200: var(--dark-primary-200);
+    --primary-100: var(--dark-primary-100);
+    --primary-000: var(--dark-primary-000);
+    --typography-100: var(--dark-typography-100);
+    --typography-200: var(--dark-typography-200);
+    --typography-300: var(--dark-typography-300);
+    --typography-400: var(--dark-typography-400);
+    --border-patreon-gradient-color-start: var(
+      --dark-border-patreon-gradient-color-start
+    );
+    --border-patreon-gradient-color-stop: var(
+      --dark-border-patreon-gradient-color-stop
+    );
+    --border-default-gradient-color-start: var(
+      --dark-border-default-gradient-color-start
+    );
+    --border-default-gradient-color-stop: var(
+      --dark-border-default-gradient-color-stop
+    );
+    --cursor-color: var(--dark-cursor-color);
+  }
+}
+
+.anime-card-style-1 {
+  display: flex;
+  background-color: transparent;
+  border-radius: 12px;
+  padding: 8px;
+  color: rgb(255, 255, 255);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  width: 300px;
+  height: 180px;
+  margin: 2px auto;
+  perspective: 1000px;
+  will-change: transform;
+  transition: transform 0.3s ease-out;
+  border: 1px solid #9d91f94d;
+}
+body {
+  font-family: "Inter", sans-serif;
+}
+
+.anime-card-style-1:hover {
+  transform: rotateX(10deg) rotateY(10deg);
+}
+
+.anime-img-box {
+  position: relative;
+  flex-shrink: 0;
+  backface-visibility: hidden;
+}
+
+.anime-img {
+  width: 120px;
+  height: 180px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.pg-badge {
+  position: absolute;
+  bottom: 2px;
+  left: 8px;
+  background-color: ;
+  color: var(--primary-100);
+  padding: 3px 6px;
+  font-size: 11px;
+  border-radius: 5px;
+  /* font-weight: bold; */
+}
+
+.anime-info {
+  padding-left: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  backface-visibility: hidden;
+}
+
+.anime-top {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.status-badge {
+  background-color: transparent;
+  color: #fff;
+  font-size: 13px;
+  padding: 8px 8px;
+  border-radius: 8px;
+  display: inline-block;
+  width: fit-content;
+  margin-bottom: 2px;
+
+  border: 1px solid var(--dark-background-500);
+}
+
+.episodes {
+  font-size: 12px;
+  color: var(--primary-100);
+  margin: 0;
+}
+
+.anime-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 4px 0;
+  color: var(--primary-100);
+  line-height: 1.2;
+  word-break: break-word;
+  max-width: 95%;
+}
+
+.score-rank {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.score {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  /* align-items: center; */
+  font-size: 13px;
+  color: var(--primary-100);
+}
+
+.score-top {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  justify-content: center;
+}
+
+.star-icon {
+  display: block;
+  margin-top: 1px;
+}
+
+.score-value {
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 1;
+}
+
+.user-count {
+  color: var(--typography-300);
+  font-size: 11px;
+  margin-top: 2px;
+  /* align-items: flex-start; */
+  text-align: center;
+}
+
+.rank {
+  align-items: flex-start;
+  font-size: 11px;
+  color: var(--typography-300);
+  margin-right: 30px;
+}
+
+.rank div {
+  font-size: 15px;
+  color: var(--primary-100);
+  font-weight: bold;
+}
+
+.genres {
+  display: flex;
+  gap: 6px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.genre {
+  background-color: var(--background-300);
+  color: var(--primary-100);
+  font-size: 11px;
+  padding: 8px 12px;
+  border-radius: 8px;
+}
