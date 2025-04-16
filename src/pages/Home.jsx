@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import AnimeCard from "../components/AnimeCard";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 function Home() {
   const [animes, setAnimes] = useState([]);
@@ -21,7 +23,8 @@ function Home() {
 
   return (
     <div style={{ padding: "20px" }}>
-      {/* Carrossel de populares */}
+      <Header />
+
       <div
         style={{
           marginBottom: "40px",
@@ -45,7 +48,7 @@ function Home() {
           style={{
             display: "flex",
             flexWrap: "wrap",
-            gap: "10px",
+            gap: "15px",
             justifyContent: "center",
           }}
         >
@@ -54,6 +57,7 @@ function Home() {
           ))}
         </div>
       )}
+      <Footer />
     </div>
   );
 }

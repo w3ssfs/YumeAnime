@@ -100,12 +100,12 @@
   display: flex;
   background-color: transparent;
   border-radius: 12px;
-  padding: 8px 4px 8px 8px;
+  padding: 6px 4px 6px 6px;
   color: rgb(255, 255, 255);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   width: 310px;
-  height: 180px;
-  margin: 2px auto;
+  height: 200px;
+  margin: 2px 12px;
   perspective: 1000px;
   will-change: transform;
   transition: all 0.2s ease-out;
@@ -130,8 +130,8 @@ body {
 }
 
 .anime-img {
-  width: 120px;
-  height: 180px;
+  width: 130px;
+  height: 200px;
   border-radius: 10px;
   object-fit: cover;
 }

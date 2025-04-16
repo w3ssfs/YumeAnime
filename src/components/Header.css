@@ -1,0 +1,83 @@
+.main-header {
+  width: 100%;
+  max-width: 1200px;
+  height: 80px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--background-100);
+  color: var(--typography-200);
+}
+
+.center-section .ativo {
+  color: var(--typography-100);
+  /* font-weight: bold; */
+  /* border-bottom: 2px solid var(--highlight-color); */
+}
+
+.left-section .logo {
+  height: 50px;
+  object-fit: contain;
+}
+
+.center-section {
+  display: flex;
+  gap: 15px;
+}
+
+.center-section a {
+  text-decoration: none;
+  color: var(--typography-300);
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.center-section a:hover {
+  color: var(--typography-100);
+}
+
+.right-section {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  background-color: var(--background-300);
+  padding: 6px 10px;
+  border-radius: 20px;
+}
+
+.search-box input {
+  border: none;
+  background: transparent;
+  outline: none;
+  color: var(--typography-100);
+  padding-left: 8px;
+}
+
+.search-icon {
+  color: var(--typography-200);
+}
+
+.icon {
+  font-size: 20px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.icon:hover {
+  transform: scale(1.1);
+}
+
+.profile-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--primary-500);
+}
