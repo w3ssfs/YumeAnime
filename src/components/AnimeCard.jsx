@@ -8,8 +8,8 @@ function AnimeCard({ anime }) {
     const { clientX, clientY, currentTarget } = e;
     const { offsetWidth, offsetHeight } = currentTarget;
 
-    const rotateX = (clientY / offsetHeight - 0.5) * 10;
-    const rotateY = (clientX / offsetWidth - 0.5) * 10;
+    const rotateX = (clientY / offsetHeight - 5) * 3;
+    const rotateY = (clientX / offsetWidth - 5) * 3;
 
     setRotate({ x: rotateX, y: rotateY });
   };
@@ -23,6 +23,32 @@ function AnimeCard({ anime }) {
   const season = anime.season
     ? anime.season.charAt(0).toUpperCase() + anime.season.slice(1)
     : "N/A";
+
+  const getShortTitle = (titleObj, maxLength = 30) => {
+    const { title, title_english, title_synonyms = [] } = titleObj;
+
+    let short =
+      title_english && title_english.length <= maxLength
+        ? title_english
+        : title;
+
+    if (short.length > maxLength && title_synonyms.length > 0) {
+      short = title_synonyms[0];
+    }
+
+    return short.length > maxLength
+      ? short.substring(0, maxLength - 3) + "..."
+      : short;
+  };
+
+  const getStatusClass = (status) => {
+    const normalized = status.toLowerCase();
+    if (["airing", "em exibição"].includes(normalized)) return "airing";
+    if (["finished airing", "finalizado"].includes(normalized))
+      return "finished";
+    if (["ongoing", "em andamento"].includes(normalized)) return "ongoing";
+    return "";
+  };
 
   return (
     <div
@@ -46,13 +72,15 @@ function AnimeCard({ anime }) {
 
       <div className="anime-info">
         <div className="anime-top">
-          <span className="status-badge">Finished Airing</span>
+          <span className={`status-badge ${getStatusClass(anime.status)}`}>
+            {anime.status}
+          </span>
           <p className="episodes">
-            {season} {year} • {anime.episodes || "?"} episodes
+            {season} {year} • {anime.episodes || "?"} episódios
           </p>
         </div>
 
-        <p className="anime-title">{anime.title}</p>
+        <p className="anime-title">{getShortTitle(anime)}</p>
 
         <div className="score-rank">
           <div className="score">
@@ -74,7 +102,7 @@ function AnimeCard({ anime }) {
               <span className="score-value">{anime.score || "?"}</span>
             </div>
             <span className="user-count">
-              {anime.scored_by?.toLocaleString() || "0"} users
+              {anime.scored_by?.toLocaleString() || "0"} usuários
             </span>
           </div>
 
@@ -85,13 +113,21 @@ function AnimeCard({ anime }) {
         </div>
 
         <div className="genres">
-          {(anime.genres || []).slice(0, 3).map((genre, i) => (
-            <span key={i} className="genre">
-              {genre.name}
-            </span>
-          ))}
-          {anime.genres.length > 3 && (
-            <span className="genre">+{anime.genres.length - 3}</span>
+          {anime.genres.length === 1 ? (
+            <span className="genre">{anime.genres[0].name}</span>
+          ) : (
+            <>
+              {anime.genres.slice(0, 2).map((genre, i) => (
+                <span key={i} className="genre">
+                  {genre.name.length > 6
+                    ? genre.name.slice(0, 4) + "..."
+                    : genre.name}
+                </span>
+              ))}
+              {anime.genres.length > 2 && (
+                <span className="genre">+{anime.genres.length - 2}</span>
+              )}
+            </>
           )}
         </div>
       </div>

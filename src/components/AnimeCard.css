@@ -9,7 +9,7 @@
   --dark-background-button-primary-hover: var(--primary-600);
   --dark-background-language-dotnet: #491756;
   --dark-primary-900: #041354;
-  --dark-primary-800: #071b66;
+  --dark-primary-800: #071c66be;
   --dark-primary-700: #0c287f;
   --dark-primary-600: #113698;
   --dark-primary-500: #1847b1;
@@ -79,6 +79,20 @@
       --dark-border-default-gradient-color-stop
     );
     --cursor-color: var(--dark-cursor-color);
+    --border-patreon-gradient-color-start: var(
+      --dark-border-patreon-gradient-color-start
+    );
+    --border-patreon-gradient-color-stop: var(
+      --dark-border-patreon-gradient-color-stop
+    );
+    --border-default-gradient-color-start: var(
+      --dark-border-default-gradient-color-start
+    );
+    --border-default-gradient-color-stop: var(
+      --dark-border-default-gradient-color-stop
+    );
+    --dark-border-default-gradient-color-start: var(--dark-primary-200);
+    --dark-border-default-gradient-color-stop: var(--dark-primary-500);
   }
 }
 
@@ -86,23 +100,27 @@
   display: flex;
   background-color: transparent;
   border-radius: 12px;
-  padding: 8px;
+  padding: 8px 4px 8px 8px;
   color: rgb(255, 255, 255);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  width: 300px;
+  width: 310px;
   height: 180px;
   margin: 2px auto;
   perspective: 1000px;
   will-change: transform;
-  transition: transform 0.3s ease-out;
-  border: 1px solid #9d91f94d;
+  transition: all 0.2s ease-out;
+  border: 1px solid var(--dark-primary-800);
+  cursor: pointer;
+
+  transform-style: preserve-3d;
 }
+
 body {
   font-family: "Inter", sans-serif;
 }
 
 .anime-card-style-1:hover {
-  transform: rotateX(10deg) rotateY(10deg);
+  transform: rotateX(20deg) rotateY(10deg);
 }
 
 .anime-img-box {
@@ -120,14 +138,29 @@ body {
 
 .pg-badge {
   position: absolute;
-  bottom: 2px;
-  left: 8px;
-  background-color: ;
-  color: var(--primary-100);
+  bottom: 3px;
+  left: 3px;
+  background-color: #00000068;
   padding: 3px 6px;
   font-size: 11px;
   border-radius: 5px;
   /* font-weight: bold; */
+  color: var(--primary-100);
+  z-index: 1;
+  overflow: hidden;
+}
+
+.pg-badge::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.2), transparent);
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.2), 0 0 12px rgba(128, 0, 255, 0.4);
+  z-index: -1;
 }
 
 .anime-info {
@@ -147,7 +180,7 @@ body {
 
 .status-badge {
   background-color: transparent;
-  color: #fff;
+  color: rgb(161, 196, 247);
   font-size: 13px;
   padding: 8px 8px;
   border-radius: 8px;
@@ -157,6 +190,21 @@ body {
 
   border: 1px solid var(--dark-background-500);
 }
+/* Cores para diferentes status */
+.status-badge.airing {
+  background-color: #ffcc00; /* Exemplo: cor para 'Airing' */
+  color: #000;
+}
+
+.status-badge.finished {
+  background-color: #28a745; /* Exemplo: cor para 'Finished Airing' */
+  color: #fff;
+}
+
+.status-badge.ongoing {
+  background-color: #17a2b8; /* Exemplo: cor para 'Ongoing' */
+  color: #fff;
+}
 
 .episodes {
   font-size: 12px;
@@ -165,8 +213,8 @@ body {
 }
 
 .anime-title {
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 14px;
+  /* font-weight: 600; */
   margin: 4px 0;
   color: var(--primary-100);
   line-height: 1.2;
@@ -239,6 +287,6 @@ body {
   background-color: var(--background-300);
   color: var(--primary-100);
   font-size: 11px;
-  padding: 8px 12px;
+  padding: 8px 10px;
   border-radius: 8px;
 }

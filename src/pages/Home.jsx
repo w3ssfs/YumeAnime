@@ -45,7 +45,7 @@ function Home() {
           style={{
             display: "flex",
             flexWrap: "wrap",
-            gap: "20px",
+            gap: "10px",
             justifyContent: "center",
           }}
         >
