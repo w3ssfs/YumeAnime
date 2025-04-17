@@ -109,9 +109,11 @@
   perspective: 1000px;
   will-change: transform;
   transition: all 0.2s ease-out;
-  border: 1px solid var(--dark-primary-800);
+  border: 1px solid var(--dark-primary-500);
   cursor: pointer;
 
+  will-change: transform;
+  perspective: 1000px;
   transform-style: preserve-3d;
 }
 

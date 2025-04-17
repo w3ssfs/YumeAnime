@@ -6,11 +6,17 @@ function AnimeCard({ anime }) {
   const [imageLoaded, setImageLoaded] = useState(false);
 
   const handleMouseMove = (e) => {
-    const { clientX, clientY, currentTarget } = e;
-    const { offsetWidth, offsetHeight } = currentTarget;
+    const { currentTarget, clientX, clientY } = e;
+    const { left, top, width, height } = currentTarget.getBoundingClientRect();
 
-    const rotateX = (clientY / offsetHeight - 5) * 3;
-    const rotateY = (clientX / offsetWidth - 5) * 3;
+    const x = clientX - left;
+    const y = clientY - top;
+
+    const centerX = width / 2;
+    const centerY = height / 2;
+
+    const rotateX = -((y - centerY) / 20);
+    const rotateY = (x - centerX) / 20;
 
     setRotate({ x: rotateX, y: rotateY });
   };
@@ -57,7 +63,8 @@ function AnimeCard({ anime }) {
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       style={{
-        transform: `rotateX(${rotate.x}deg) rotateY(${rotate.y}deg)`,
+        transform: `perspective(1000px) rotateX(${rotate.x}deg) rotateY(${rotate.y}deg)`,
+        transition: "transform 0.1s ease-out",
       }}
     >
       <div className="anime-img-box">
