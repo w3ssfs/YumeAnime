@@ -190,21 +190,6 @@ body {
 
   border: 1px solid var(--dark-background-500);
 }
-/* Cores para diferentes status */
-.status-badge.airing {
-  background-color: #ffcc00; /* Exemplo: cor para 'Airing' */
-  color: #000;
-}
-
-.status-badge.finished {
-  background-color: #28a745; /* Exemplo: cor para 'Finished Airing' */
-  color: #fff;
-}
-
-.status-badge.ongoing {
-  background-color: #17a2b8; /* Exemplo: cor para 'Ongoing' */
-  color: #fff;
-}
 
 .episodes {
   font-size: 12px;

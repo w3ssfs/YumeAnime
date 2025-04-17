@@ -3,6 +3,7 @@ import axios from "axios";
 import AnimeCard from "../components/AnimeCard";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import FutureAnimeSection from "../components/FutureAnimeSection";
 
 function Home() {
   const [animes, setAnimes] = useState([]);
@@ -25,24 +26,11 @@ function Home() {
     <div style={{ padding: "20px" }}>
       <Header />
 
-      <div
-        style={{
-          marginBottom: "40px",
-          height: "300px",
-          backgroundColor: "#111",
-          color: "#fff",
-          borderRadius: "12px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <h2>🎞️ Carrossel de Animes Populares (em breve)</h2>
-      </div>
+      <FutureAnimeSection />
 
-      <h1 style={{ color: "#fff" }}>Lançamentos da Temporada</h1>
+      <h1 className="section-title">Lançamentos da Temporada</h1>
       {loading ? (
-        <p style={{ color: "#fff" }}>Carregando...</p>
+        <p></p>
       ) : (
         <div
           style={{

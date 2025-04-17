@@ -1,0 +1,39 @@
+.future-anime-section {
+  padding: 30px 0;
+  background: var(--background-100);
+}
+
+.section-title {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: var(--typography-100);
+}
+
+.anime-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.show-more-btn {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.show-more-btn button {
+  padding: 10px 20px;
+  background-color: var(--background-300);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.8s;
+}
+
+.show-more-btn button:hover {
+  background-color: var(--background-200);
+}

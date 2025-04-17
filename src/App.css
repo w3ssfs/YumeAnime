@@ -1,11 +1,11 @@
 @media (prefers-color-scheme: dark) {
   :root {
-    --background-500: #1e1e1e; /* Substitua pelos valores que você deseja */
+    --background-500: #1e1e1e;
     --background-400: #2c2c2c;
     --background-300: #3a3a3a;
     --background-200: #484848;
     --background-100: #565656;
-    --background-000: #ffffff; /* Ou outra cor mais clara para o fundo */
+    --background-000: #ffffff;
     --background-button-primary-default: #333333;
     --background-button-primary-hover: #444444;
     --primary-900: #e1e1e1;

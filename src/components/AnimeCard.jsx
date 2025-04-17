@@ -3,6 +3,7 @@ import "./AnimeCard.css";
 
 function AnimeCard({ anime }) {
   const [rotate, setRotate] = useState({ x: 0, y: 0 });
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   const handleMouseMove = (e) => {
     const { clientX, clientY, currentTarget } = e;
@@ -52,7 +53,7 @@ function AnimeCard({ anime }) {
 
   return (
     <div
-      className="anime-card-style-1"
+      className={`anime-card-style-1 ${!imageLoaded ? "loading" : ""}`}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       style={{
@@ -64,7 +65,10 @@ function AnimeCard({ anime }) {
           src={anime.images.jpg.image_url}
           alt={anime.title}
           className="anime-img"
+          onLoad={() => setImageLoaded(true)}
         />
+
+        {!imageLoaded && <div className="image-skeleton" />}
         {anime.rating && (
           <div className="pg-badge">| {anime.rating.split("-")[0].trim()}</div>
         )}
