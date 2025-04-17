@@ -13,7 +13,11 @@ function Home() {
     axios
       .get("https://api.jikan.moe/v4/seasons/now")
       .then((res) => {
-        setAnimes(res.data.data);
+        const uniqueAnimes = res.data.data.filter(
+          (anime, index, self) =>
+            index === self.findIndex((a) => a.mal_id === anime.mal_id)
+        );
+        setAnimes(uniqueAnimes);
         setLoading(false);
       })
       .catch((err) => {

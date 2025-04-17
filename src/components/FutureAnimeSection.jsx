@@ -34,7 +34,7 @@ function FutureAnimeSection() {
           ))}
       </div>
       <div className="show-more-btn">
-        <button onClick={toggleShowAll}>
+        <button type="button" onClick={toggleShowAll}>
           {showAll ? "Ver menos" : "Ver todos"}
         </button>
       </div>

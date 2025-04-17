@@ -123,8 +123,8 @@ function AnimeCard({ anime }) {
             <>
               {anime.genres.slice(0, 2).map((genre, i) => (
                 <span key={i} className="genre">
-                  {genre.name.length > 6
-                    ? genre.name.slice(0, 4) + "..."
+                  {genre.name.length > 7
+                    ? genre.name.slice(0, 7) + "..."
                     : genre.name}
                 </span>
               ))}
