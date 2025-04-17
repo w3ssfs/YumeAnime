@@ -109,7 +109,7 @@
   perspective: 1000px;
   will-change: transform;
   transition: all 0.2s ease-out;
-  border: 1px solid var(--dark-primary-500);
+  border: 1px solid var(--dark-primary-700);
   cursor: pointer;
 
   will-change: transform;

@@ -20,6 +20,12 @@ function Header() {
           Home
         </NavLink>
         <NavLink
+          to="/Animes"
+          className={({ isActive }) => (isActive ? "ativo" : "")}
+        >
+          Animes
+        </NavLink>
+        <NavLink
           to="/salvos"
           className={({ isActive }) => (isActive ? "ativo" : "")}
         >
