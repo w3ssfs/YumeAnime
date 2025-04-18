@@ -39,3 +39,53 @@
 .show-more-btn button:hover {
   background-color: var(--background-200);
 }
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 1.5rem;
+    margin-bottom: 16px;
+  }
+
+  .anime-grid {
+    gap: 15px;
+    padding: 0 10px;
+  }
+
+  .show-more-btn button {
+    width: 100%;
+    max-width: 300px;
+    font-size: 0.95rem;
+  }
+}
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 1.3rem;
+  }
+
+  .anime-grid {
+    gap: 10px;
+  }
+
+  .show-more-btn button {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+}
+@media (max-width: 768px) {
+  .anime-grid {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    gap: 12px;
+    padding: 0 10px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .anime-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .anime-grid > * {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+  }
+}
