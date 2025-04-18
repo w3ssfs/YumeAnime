@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Header.css";
 import { NavLink } from "react-router-dom";
 import userImage from "../../assets/user.png";
 import logoImage from "../../assets/logoYume.png";
-import { FaDiscord } from "react-icons/fa";
-
-import { FaSearch, FaEnvelope } from "react-icons/fa";
+import { FaDiscord, FaSearch, FaEnvelope } from "react-icons/fa";
+import { Menu, X } from "lucide-react";
 
 function Header() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => setMenuOpen((prev) => !prev);
+
   return (
     <header className="main-header">
       <div className="left-section">
@@ -16,7 +19,12 @@ function Header() {
         </NavLink>
       </div>
 
-      <nav className="center-section">
+      {/* BOTÃO DO MENU - SÓ APARECE NO MOBILE */}
+      <div className="menu-toggle" onClick={toggleMenu}>
+        {menuOpen ? <X /> : <Menu />}
+      </div>
+
+      <nav className={`center-section ${menuOpen ? "active" : ""}`}>
         <NavLink to="/" className={({ isActive }) => (isActive ? "ativo" : "")}>
           Home
         </NavLink>
@@ -47,7 +55,6 @@ function Header() {
           <FaDiscord className="icon" />
           <span>Discord</span>
         </a>
-
         <NavLink
           to="/contato"
           className={({ isActive }) => (isActive ? "ativo" : "")}
