@@ -154,4 +154,24 @@
     align-items: center;
     justify-content: center;
   }
+  .left-section .logo {
+    display: none;
+  }
+
+  .main-header {
+    justify-content: space-between;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .left-section {
+    display: flex;
+    align-items: center;
+  }
+
+  .right-section {
+    margin-left: auto;
+  }
 }

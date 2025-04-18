@@ -33,7 +33,7 @@ function FutureAnimeSection() {
   return (
     <div className="future-anime-section">
       <h2 className="section-title">Em breve</h2>
-      <div className="anime-grid">
+      <div className="anime-grid ">
         {futureAnimes
           .slice(0, showAll ? futureAnimes.length : 10)
           .map((anime) => (
