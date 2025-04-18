@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import AnimeCard from "./AnimeCard";
+import AnimeCard from "./Anime/AnimeCard";
 import "./AnimeFilterSection.css";
 
 const FILTERS = {

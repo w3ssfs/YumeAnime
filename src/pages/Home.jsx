@@ -1,30 +1,22 @@
-import { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import AnimeCard from "../components/AnimeCard";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import FutureAnimeSection from "../components/FutureAnimeSection";
+import AnimeCard from "../components/Anime/AnimeCard";
+import Header from "../components/Header/Header";
+import Footer from "../components/Footer/Footer";
+import FutureAnimeSection from "../components/FutureAnime/FutureAnimeSection";
 
 function Home() {
-  const [animes, setAnimes] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    axios
-      .get("https://api.jikan.moe/v4/seasons/now")
-      .then((res) => {
-        const uniqueAnimes = res.data.data.filter(
-          (anime, index, self) =>
-            index === self.findIndex((a) => a.mal_id === anime.mal_id)
-        );
-        setAnimes(uniqueAnimes);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.error("Erro ao buscar lançamentos:", err);
-        setLoading(false);
-      });
-  }, []);
+  const { data, isLoading } = useQuery({
+    queryKey: ["seasonNow"],
+    queryFn: async () => {
+      const res = await axios.get("https://api.jikan.moe/v4/seasons/now");
+      return res.data.data.filter(
+        (anime, index, self) =>
+          index === self.findIndex((a) => a.mal_id === anime.mal_id)
+      );
+    },
+    staleTime: 1000 * 60 * 5,
+  });
 
   return (
     <div style={{ padding: "20px" }}>
@@ -33,7 +25,7 @@ function Home() {
       <FutureAnimeSection />
 
       <h1 className="section-title">Lançamentos da Temporada</h1>
-      {loading ? (
+      {isLoading ? (
         <p></p>
       ) : (
         <div
@@ -44,7 +36,7 @@ function Home() {
             justifyContent: "center",
           }}
         >
-          {animes.map((anime) => (
+          {data.map((anime) => (
             <AnimeCard key={anime.mal_id} anime={anime} />
           ))}
         </div>

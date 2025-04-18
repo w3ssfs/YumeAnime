@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import AnimeCard from "./AnimeCard";
+import AnimeCard from "../Anime/AnimeCard";
 import "./FutureAnimeSection.css";
 
 function FutureAnimeSection() {

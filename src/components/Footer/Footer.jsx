@@ -1,6 +1,6 @@
 import React from "react";
 import "./Footer.css";
-import logoImage from "../assets/logoYume.png";
+import logoImage from "../../assets/logoYume.png";
 
 function Footer() {
   return (

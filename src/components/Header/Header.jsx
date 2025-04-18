@@ -1,8 +1,8 @@
 import React from "react";
 import "./Header.css";
 import { NavLink } from "react-router-dom";
-import userImage from "../assets/user.png";
-import logoImage from "../assets/logoYume.png";
+import userImage from "../../assets/user.png";
+import logoImage from "../../assets/logoYume.png";
 
 import { FaSearch, FaEnvelope } from "react-icons/fa";
 

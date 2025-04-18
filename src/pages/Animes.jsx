@@ -1,36 +1,28 @@
-import { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import Header from "../components/Header/Header";
+import Footer from "../components/Footer/Footer";
+import AnimeAdvancedFilterSection from "../components/Anime/AnimeAdvancedFilterSection";
+import TopRankedSection from "../components/Ranked/TopRankedSection";
 import axios from "axios";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import AnimeAdvancedFilterSection from "../components/AnimeAdvancedFilterSection";
-// import AnimeGrid from "../components/AnimeGrid";
-import TopRankedSection from "../components/TopRankedSection";
 
 function Animes() {
-  const [topAnimes, setTopAnimes] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    axios
-      .get("https://api.jikan.moe/v4/top/anime")
-      .then((res) => {
-        setTopAnimes(res.data.data.slice(0, 8));
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.error("Erro ao buscar top animes:", err);
-        setLoading(false);
-      });
-  }, []);
+  const { data, isLoading } = useQuery({
+    queryKey: ["topAnimes"],
+    queryFn: async () => {
+      const res = await axios.get("https://api.jikan.moe/v4/top/anime");
+      return res.data.data.slice(0, 8);
+    },
+    staleTime: 1000 * 60 * 5,
+  });
 
   return (
     <div style={{ padding: "20px" }}>
       <Header />
       <main className="anime-page">
-        {loading ? (
+        {isLoading ? (
           <div className="loader"></div>
         ) : (
-          <TopRankedSection topAnimes={topAnimes} />
+          <TopRankedSection topAnimes={data} />
         )}
         <AnimeAdvancedFilterSection />
       </main>

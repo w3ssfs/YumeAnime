@@ -1,4 +1,4 @@
-import "./TopRankedSection.css";
+import "../Ranked/TopRanked.css";
 
 function TopRankedSection({ topAnimes }) {
   return (
