@@ -3,6 +3,7 @@
   flex-wrap: nowrap;
   overflow: hidden;
   gap: 15px;
+  margin-top: 50px;
   justify-content: center;
   padding: 20px 0;
 }

@@ -3,6 +3,7 @@
   max-width: 1500px;
   height: 80px;
   margin: 0 auto;
+  margin-top: 20px;
   padding: 0 20px;
   display: flex;
   align-items: center;
@@ -86,6 +87,12 @@
   align-items: center;
   gap: 0.2rem;
   color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.nav-discord-contact {
+  color: var(--typography-200);
   text-decoration: none;
   transition: color 0.3s;
 }

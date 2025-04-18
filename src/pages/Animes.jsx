@@ -16,7 +16,7 @@ function Animes() {
   });
 
   return (
-    <div style={{ padding: "20px" }}>
+    <div>
       <Header />
       <main className="anime-page">
         {isLoading ? (

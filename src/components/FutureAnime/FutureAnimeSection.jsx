@@ -1,27 +1,34 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import AnimeCard from "../Anime/AnimeCard";
 import "./FutureAnimeSection.css";
+import { useQuery } from "@tanstack/react-query";
+
+const fetchUpcomingAnimes = async () => {
+  const res = await fetch("https://api.jikan.moe/v4/seasons/upcoming");
+  const data = await res.json();
+  return data.data.filter(
+    (anime, index, self) =>
+      index === self.findIndex((a) => a.mal_id === anime.mal_id)
+  );
+};
 
 function FutureAnimeSection() {
-  const [futureAnimes, setFutureAnimes] = useState([]);
   const [showAll, setShowAll] = useState(false);
 
-  useEffect(() => {
-    fetch("https://api.jikan.moe/v4/seasons/upcoming")
-      .then((res) => res.json())
-      .then((data) => {
-        const uniqueAnimes = data.data.filter(
-          (anime, index, self) =>
-            index === self.findIndex((a) => a.mal_id === anime.mal_id)
-        );
-        setFutureAnimes(uniqueAnimes);
-      })
-      .catch((err) => console.error("Erro ao carregar futuros:", err));
-  }, []);
+  const {
+    data: futureAnimes = [],
+    isLoading,
+    error,
+  } = useQuery({
+    queryKey: ["future-animes"],
+    queryFn: fetchUpcomingAnimes,
+    staleTime: 1000 * 60 * 5,
+  });
 
-  const toggleShowAll = () => {
-    setShowAll(!showAll);
-  };
+  const toggleShowAll = () => setShowAll(!showAll);
+
+  if (isLoading) return <p></p>;
+  if (error) return <p>Erro ao carregar animes futuros.</p>;
 
   return (
     <div className="future-anime-section">

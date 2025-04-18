@@ -1,0 +1,40 @@
+.terms-container {
+  /* min-height: 100vh; */
+  padding: 2rem;
+  margin-top: 150px;
+  margin-bottom: 200px;
+  background-color: var(--background-100);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.terms-box {
+  background-color: var(--background-200);
+  padding: 2rem;
+  max-width: 900px;
+  width: 100%;
+  border-radius: 20px;
+  color: #eee;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+.terms-title {
+  color: var(--typography-200);
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.terms-content {
+  line-height: 1.7;
+  font-size: 1rem;
+  white-space: pre-wrap;
+}
+
+.contact-content {
+  text-align: center;
+  line-height: 1.8;
+  font-size: 1rem;
+  padding: 1rem;
+}

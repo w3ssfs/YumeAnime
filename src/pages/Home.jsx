@@ -19,11 +19,9 @@ function Home() {
   });
 
   return (
-    <div style={{ padding: "20px" }}>
+    <div>
       <Header />
-
       <FutureAnimeSection />
-
       <h1 className="section-title">Lançamentos da Temporada</h1>
       {isLoading ? (
         <p></p>
