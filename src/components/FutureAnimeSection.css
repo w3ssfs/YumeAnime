@@ -28,7 +28,7 @@
 .show-more-btn button {
   padding: 10px 20px;
   background-color: var(--background-300);
-  color: #fff;
+  color: var(--primary-100);
   border: none;
   border-radius: 5px;
   cursor: pointer;

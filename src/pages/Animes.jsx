@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-// import AnimeFilterBar from "../components/AnimeFilterBar";
+import AnimeAdvancedFilterSection from "../components/AnimeAdvancedFilterSection";
 // import AnimeGrid from "../components/AnimeGrid";
 import TopRankedSection from "../components/TopRankedSection";
 
@@ -32,6 +32,7 @@ function Animes() {
         ) : (
           <TopRankedSection topAnimes={topAnimes} />
         )}
+        <AnimeAdvancedFilterSection />
       </main>
       <Footer />
     </div>
