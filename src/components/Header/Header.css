@@ -81,3 +81,20 @@
   object-fit: cover;
   border: 2px solid var(--primary-500);
 }
+.nav-discord {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.nav-discord:hover {
+  color: #3b82f6; /* azul do Tailwind */
+}
+
+.nav-discord .icon {
+  font-size: 20px;
+  transform: translateY(1px);
+}

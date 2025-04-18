@@ -3,6 +3,7 @@ import "./Header.css";
 import { NavLink } from "react-router-dom";
 import userImage from "../../assets/user.png";
 import logoImage from "../../assets/logoYume.png";
+import { FaDiscord } from "react-icons/fa";
 
 import { FaSearch, FaEnvelope } from "react-icons/fa";
 
@@ -37,12 +38,16 @@ function Header() {
         >
           Amigos
         </NavLink>
-        <NavLink
-          to="/discord"
-          className={({ isActive }) => (isActive ? "ativo" : "")}
+        <a
+          href="https://discord.gg/3YRPzTBQCv"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="nav-discord"
         >
-          Discord
-        </NavLink>
+          <FaDiscord className="icon" />
+          <span>Discord</span>
+        </a>
+
         <NavLink
           to="/contato"
           className={({ isActive }) => (isActive ? "ativo" : "")}
