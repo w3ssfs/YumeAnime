@@ -1,12 +1,16 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import { useState } from "react";
 import AnimeCard from "../components/Anime/AnimeCard";
-import Header from "../components/Header/Header";
-import Footer from "../components/Footer/Footer";
+
 import FutureAnimeSection from "../components/FutureAnime/FutureAnimeSection";
+import "../components/FutureAnime/FutureAnimeSection.css";
 
 function Home() {
-  const { data, isLoading } = useQuery({
+  const [showAll, setShowAll] = useState(false);
+  const toggleShowAll = () => setShowAll(!showAll);
+
+  const { data = [], isLoading } = useQuery({
     queryKey: ["seasonNow"],
     queryFn: async () => {
       const res = await axios.get("https://api.jikan.moe/v4/seasons/now");
@@ -20,26 +24,24 @@ function Home() {
 
   return (
     <div>
-      <Header />
       <FutureAnimeSection />
       <h1 className="section-title">Lançamentos da Temporada</h1>
       {isLoading ? (
         <p></p>
       ) : (
-        <div
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            gap: "15px",
-            justifyContent: "center",
-          }}
-        >
-          {data.map((anime) => (
-            <AnimeCard key={anime.mal_id} anime={anime} />
-          ))}
-        </div>
+        <>
+          <div className="anime-grid">
+            {(showAll ? data : data.slice(0, 20)).map((anime) => (
+              <AnimeCard key={anime.mal_id} anime={anime} />
+            ))}
+          </div>
+          <div className="show-more-btn">
+            <button onClick={toggleShowAll}>
+              {showAll ? "Ver menos" : "Ver todos"}
+            </button>
+          </div>
+        </>
       )}
-      <Footer />
     </div>
   );
 }

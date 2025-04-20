@@ -1,6 +1,4 @@
 import { useQuery } from "@tanstack/react-query";
-import Header from "../components/Header/Header";
-import Footer from "../components/Footer/Footer";
 import AnimeAdvancedFilterSection from "../components/Anime/AnimeAdvancedFilterSection";
 import TopRankedSection from "../components/Ranked/TopRankedSection";
 import axios from "axios";
@@ -17,7 +15,6 @@ function Animes() {
 
   return (
     <div>
-      <Header />
       <main className="anime-page">
         {isLoading ? (
           <div className="loader"></div>
@@ -26,7 +23,6 @@ function Animes() {
         )}
         <AnimeAdvancedFilterSection />
       </main>
-      <Footer />
     </div>
   );
 }

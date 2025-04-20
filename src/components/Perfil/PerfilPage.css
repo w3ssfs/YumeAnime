@@ -1,0 +1,136 @@
+.perfil-container {
+  /* background: radial-gradient(circle at top, #0f172a 0%, #0f1117 100%); */
+  color: #fff;
+  min-height: 100vh;
+}
+
+.perfil-content {
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem 1rem;
+}
+
+.perfil-top-card {
+  background: linear-gradient(to bottom, #0f172a, #0f1117);
+  border: 2px solid #0ea5e9;
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.perfil-avatar-glow {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 4px solid #38bdf8;
+  margin-bottom: 1rem;
+  object-fit: cover;
+}
+
+.perfil-rank-btn {
+  background-color: #2563eb;
+  color: #fff;
+  padding: 0.3rem 1rem;
+  border-radius: 10px;
+  border: none;
+  margin: 0.5rem 0;
+  font-weight: bold;
+  cursor: default;
+}
+
+.perfil-date {
+  color: #cbd5e1;
+  font-size: 0.9rem;
+}
+
+.perfil-infos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.perfil-box {
+  background-color: #1e293b;
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.perfil-box h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.perfil-box ul {
+  padding-left: 1rem;
+  list-style: none;
+}
+
+.perfil-icons span {
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+}
+
+.perfil-friends {
+  display: flex;
+  align-items: center;
+}
+
+.perfil-friends img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  margin-right: 0.3rem;
+  border: 2px solid #3b82f6;
+}
+
+.perfil-friends span {
+  margin-left: 0.3rem;
+}
+
+.perfil-animes-salvos h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.favoritos-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.ver-mais {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 20px;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.ver-mais:hover {
+  background-color: #2563eb;
+}
+
+@media (max-width: 768px) {
+  .favoritos-list {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .favoritos-list > * {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+  }
+}

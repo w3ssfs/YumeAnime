@@ -1,12 +1,10 @@
 import React from "react";
-import Header from "../components/Header/Header";
-import Footer from "../components/Footer/Footer";
+
 import "../components/TermsOfUse/TermsOfUse.css";
 
 function TermsOfPrivate() {
   return (
     <>
-      <Header />
       <main className="terms-container">
         <div className="terms-box">
           <h1 className="terms-title">Política de Privacidade</h1>
@@ -112,7 +110,6 @@ function TermsOfPrivate() {
           </div>
         </div>
       </main>
-      <Footer />
     </>
   );
 }

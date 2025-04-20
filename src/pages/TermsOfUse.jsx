@@ -1,12 +1,10 @@
 import React from "react";
-import Header from "../components/Header/Header";
-import Footer from "../components/Footer/Footer";
+
 import "../components/TermsOfUse/TermsOfUse.css";
 
 function TermsOfUse() {
   return (
     <>
-      <Header />
       <main className="terms-container">
         <div className="terms-box">
           <h1 className="terms-title">Política Geral e Termos de Uso</h1>
@@ -152,7 +150,6 @@ function TermsOfUse() {
           </div>
         </div>
       </main>
-      <Footer />
     </>
   );
 }

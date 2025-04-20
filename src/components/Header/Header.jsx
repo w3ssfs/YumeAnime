@@ -17,11 +17,10 @@ function Header() {
         <NavLink to="/">
           <img src={logoImage} alt="Logo" className="logo" />
         </NavLink>
-      </div>
 
-      {/* BOTÃO DO MENU - SÓ APARECE NO MOBILE */}
-      <div className="menu-toggle" onClick={toggleMenu}>
-        {menuOpen ? <X /> : <Menu />}
+        <div className="menu-toggle" onClick={toggleMenu}>
+          {menuOpen ? <X /> : <Menu />}
+        </div>
       </div>
 
       <nav className={`center-section ${menuOpen ? "active" : ""}`}>
