@@ -3,20 +3,22 @@
   background-color: transparent;
   border-radius: 12px;
   padding: 6px 4px 6px 6px;
-  color: rgb(248, 248, 248);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  /* color: rgb(248, 248, 248); */
+  /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); */
   width: 320px;
   height: 200px;
   margin: 2px 12px;
   perspective: 1000px;
   will-change: transform;
   transition: all 0.2s ease-out;
-  border: 1px solid var(--dark-primary-700);
+  /* border: 1px solid var(--dark-primary-600); */
+
   cursor: pointer;
 
   will-change: transform;
   perspective: 1000px;
   transform-style: preserve-3d;
+  box-shadow: 0 0 12px rgba(14, 165, 233, 0.2);
 }
 
 body {

@@ -12,11 +12,14 @@
 
 .perfil-top-card {
   background: linear-gradient(to bottom, #0f172a, #0f1117);
-  border: 2px solid #0ea5e9;
+  border: 1px solid #0ea5e9;
   border-radius: 16px;
   padding: 2rem;
   text-align: center;
   margin-bottom: 2rem;
+  box-shadow: 0 0 12px rgba(14, 165, 233, 0.2);
+  max-width: 500px;
+  margin: 0 auto 2rem auto;
 }
 
 .perfil-avatar-glow {
@@ -49,13 +52,19 @@
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 1.5rem;
   margin-bottom: 2rem;
+  justify-content: center;
 }
 
 .perfil-box {
   background-color: #1e293b;
-  border-radius: 12px;
-  padding: 1rem 1.5rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 16px;
+  border: 1px solid #334155;
+  padding: 1.2rem 1.5rem;
+  box-shadow: 0 0 10px rgba(30, 58, 138, 0.2);
+  transition: all 0.3s ease;
+}
+.perfil-box:hover {
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
 }
 
 .perfil-box h3 {
@@ -99,26 +108,12 @@
 .favoritos-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 15px;
   justify-content: center;
-  margin-bottom: 1rem;
-}
-
-.ver-mais {
-  display: block;
-  margin: 0 auto;
-  padding: 10px 20px;
-  background-color: #3b82f6;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: 0.3s;
 }
 
 .ver-mais:hover {
-  background-color: #2563eb;
+  background-color: var(--background-200);
 }
 
 @media (max-width: 768px) {

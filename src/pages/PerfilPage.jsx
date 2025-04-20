@@ -73,7 +73,7 @@ const PerfilPage = () => {
         </div>
 
         <section className="perfil-animes-salvos">
-          <h3>Animes Salvos</h3>
+          <h3 className="section-title">Animes Salvos</h3>
           {isLoading ? (
             <p>Carregando...</p>
           ) : error ? (
@@ -81,15 +81,23 @@ const PerfilPage = () => {
           ) : (
             <>
               <div className="favoritos-list">
-                {savedAnimes
-                  .slice(0, showAll ? savedAnimes.length : 10)
-                  .map((anime) => (
-                    <AnimeCard key={anime.mal_id} anime={anime} />
-                  ))}
+                {Array.isArray(savedAnimes) &&
+                  savedAnimes
+                    .slice(0, showAll ? savedAnimes.length : 10)
+                    .map((savedAnimes) => (
+                      <AnimeCard key={savedAnimes.mal_id} anime={savedAnimes} />
+                    ))}
               </div>
-              <button onClick={toggleShowAll} className="ver-mais">
-                {showAll ? "Ver menos" : "Ver todos"}
-              </button>
+
+              <div className="show-more-btn">
+                <button
+                  onClick={toggleShowAll}
+                  className="ver-mais"
+                  type="button"
+                >
+                  {showAll ? "Ver menos" : "Ver todos"}
+                </button>
+              </div>
             </>
           )}
         </section>
