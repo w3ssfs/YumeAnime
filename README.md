@@ -1,70 +1,60 @@
-# Getting Started with Create React App
+# 🌸 YumeAnime
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**YumeAnime** é uma plataforma moderna e interativa voltada para fãs de animes, onde você pode explorar lançamentos futuros, acompanhar os animes em exibição e gerenciar seus favoritos com uma experiência visual envolvente.
 
-## Available Scripts
+🔗 [Acesse o site aqui](https://yumeanime.netlify.app)
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## ✨ Funcionalidades
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- 🎬 **Lançamentos "Em Breve"**: Fique por dentro dos animes que ainda vão estrear, com informações detalhadas como temporada, gênero e número de episódios.
+- 📺 **Animes em Exibição**: Veja quais animes estão sendo transmitidos atualmente com notas, ranking e número de usuários.
+- ⭐ **Favoritos**: Salve seus animes preferidos e acesse-os rapidamente em uma página dedicada.
+- 🔍 **Busca Avançada**: Filtre por nome, gênero, ano e estação para encontrar exatamente o que procura.
+- 📄 **Página de Perfil**: Visual moderno e personalizável com estatísticas e conquistas.
+- 🌓 **Suporte a Tema Claro e Escuro**: Interface adaptável com base em preferências do usuário.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 💻 Tecnologias Utilizadas
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Frontend**: [React.js](https://reactjs.org/) + [Tailwind CSS](https://tailwindcss.com/)
+- **Componentes**: [Shadcn/UI](https://ui.shadcn.dev/) + [Lucide Icons](https://lucide.dev/)
+- **Gerenciamento de Dados**: React Query
+- **Hospedagem**: [Netlify](https://www.netlify.com/)
+- **APIs**:  Jikan API
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🚀 Como Contribuir
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Faça um fork deste repositório
+2. Crie sua branch: `git checkout -b minha-feature`
+3. Commit suas mudanças: `git commit -m 'feat: minha nova feature'`
+4. Push para a branch: `git push origin minha-feature`
+5. Abra um Pull Request
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## 📸 Capturas de Tela
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+![image](https://github.com/user-attachments/assets/9220e544-942e-4d0e-8d7c-d10c57510c6b)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+![image](https://github.com/user-attachments/assets/8dc39f56-9e4d-427e-9a30-c36f317ceb16)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
+ 
+![image](https://github.com/user-attachments/assets/68db7059-7361-4614-99fd-730ef5be82ce)
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 📫 Contato
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Para dúvidas, sugestões ou colaborações, entre em contato pelo [meu GitHub](https://github.com/w3ssfs) ou abra uma issue aqui no repositório!
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+🧡 Feito com carinho por fãs de anime.
