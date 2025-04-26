@@ -34,6 +34,10 @@ body {
   flex-shrink: 0;
   backface-visibility: hidden;
 }
+.anime-card-link {
+  text-decoration: none;
+  color: inherit;
+}
 
 .anime-img {
   width: 130px;
@@ -198,6 +202,7 @@ body {
     scroll-snap-type: x mandatory !important;
     -webkit-overflow-scrolling: touch !important;
     justify-content: flex-start !important;
+    margin: 10px;
   }
 
   .anime-grid::-webkit-scrollbar,

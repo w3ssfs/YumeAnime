@@ -11,10 +11,14 @@ function Header() {
 
   const toggleMenu = () => setMenuOpen((prev) => !prev);
 
+  const closeMenu = () => {
+    setMenuOpen(false); // Fecha o menu
+  };
+
   return (
     <header className="main-header">
       <div className="left-section">
-        <NavLink to="/">
+        <NavLink to="/" onClick={closeMenu}>
           <img src={logoImage} alt="Logo" className="logo" />
         </NavLink>
 
@@ -24,23 +28,30 @@ function Header() {
       </div>
 
       <nav className={`center-section ${menuOpen ? "active" : ""}`}>
-        <NavLink to="/" className={({ isActive }) => (isActive ? "ativo" : "")}>
+        <NavLink
+          to="/"
+          onClick={closeMenu}
+          className={({ isActive }) => (isActive ? "ativo" : "")}
+        >
           Home
         </NavLink>
         <NavLink
           to="/Animes"
+          onClick={closeMenu}
           className={({ isActive }) => (isActive ? "ativo" : "")}
         >
           Animes
         </NavLink>
         <NavLink
           to="/salvos"
+          onClick={closeMenu}
           className={({ isActive }) => (isActive ? "ativo" : "")}
         >
           Salvos
         </NavLink>
         <NavLink
           to="/amigos"
+          onClick={closeMenu}
           className={({ isActive }) => (isActive ? "ativo" : "")}
         >
           Amigos
@@ -50,12 +61,14 @@ function Header() {
           target="_blank"
           rel="noopener noreferrer"
           className="nav-discord"
+          onClick={closeMenu}
         >
           <FaDiscord className="icon" />
           <span>Discord</span>
         </a>
         <NavLink
           to="/contato"
+          onClick={closeMenu}
           className={({ isActive }) => (isActive ? "ativo" : "")}
         >
           Contato

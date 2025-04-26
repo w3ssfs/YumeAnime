@@ -9,6 +9,7 @@ import Contact from "./pages/Contact";
 import Private from "./pages/TermsOfPrivate";
 import Perfil from "./pages/PerfilPage";
 import Layout from "./components/Layout";
+import AnimeDetailsPage from "./pages/AnimeDetailsPage";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/Contato" element={<Contact />} />
           <Route path="/Privacidade" element={<Private />} />
           <Route path="/Perfil" element={<Perfil />} />
+          <Route path="/anime/:id" element={<AnimeDetailsPage />} />
         </Routes>
       </Layout>
     </Router>
