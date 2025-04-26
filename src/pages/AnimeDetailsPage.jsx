@@ -9,7 +9,7 @@ const fetchAnimeDetails = async (id) => {
 };
 
 const AnimeDetailsPage = () => {
-  const [showTrailer, setShowTrailer] = useState(false);
+  const [showTrailer] = useState(false);
 
   const { id } = useParams();
   const {
