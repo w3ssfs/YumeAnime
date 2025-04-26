@@ -1,9 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import Header from "../components/Header/Header";
-import Footer from "../components/Footer/Footer";
 import "../components/Anime/AnimeDetailsPage.css";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 const fetchAnimeDetails = async (id) => {
   const res = await fetch(`https://api.jikan.moe/v4/anime/${id}/full`);
   const data = await res.json();
@@ -101,24 +99,6 @@ const AnimeDetailsPage = () => {
             title="Trailer"
             allowFullScreen
           ></iframe>
-        </div>
-      )}
-
-      {anime.characters && anime.characters.length > 0 && (
-        <div className="characters-card">
-          <h2>Personagens</h2>
-          <div className="characters-list">
-            {anime.characters.slice(0, 5).map((character) => (
-              <div key={character.character.mal_id} className="character">
-                <img
-                  src={character.character.images.jpg.image_url}
-                  alt={character.character.name}
-                  className="character-image"
-                />
-                <p className="character-name">{character.character.name}</p>
-              </div>
-            ))}
-          </div>
         </div>
       )}
     </>
