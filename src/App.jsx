@@ -10,6 +10,7 @@ import Private from "./pages/TermsOfPrivate";
 import Perfil from "./pages/PerfilPage";
 import Layout from "./components/Layout";
 import AnimeDetailsPage from "./pages/AnimeDetailsPage";
+import Saved from "./pages/SavedPage";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/Privacidade" element={<Private />} />
           <Route path="/Perfil" element={<Perfil />} />
           <Route path="/anime/:id" element={<AnimeDetailsPage />} />
+          <Route path="/Salvos" element={<Saved />} />
         </Routes>
       </Layout>
     </Router>

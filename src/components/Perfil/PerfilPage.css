@@ -6,7 +6,7 @@
 }
 
 .perfil-content {
-  max-width: 1200px;
+  max-width: 1900px;
   margin: auto;
   padding: 2rem 1rem;
 }
@@ -142,4 +142,22 @@
     flex: 0 0 auto;
     scroll-snap-align: start;
   }
+}
+.sort-controls {
+  margin-bottom: 1.5rem;
+  text-align: right;
+}
+
+.sort-select {
+  background: #1e293b;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  border: 1px solid #334155;
+  font-size: 1rem;
+  outline: none;
+  cursor: pointer;
+}
+.sort-select:hover {
+  border-color: #3b82f6;
 }
