@@ -21,7 +21,6 @@ function AnimeFilterSection() {
   }, [filter]);
 
   const toggleShowAll = () => setShowAll((prev) => !prev);
-
   return (
     <div className="anime-filter-section">
       <div className="filter-menu">
