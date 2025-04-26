@@ -83,7 +83,14 @@ const PerfilPage = () => {
               <div className="favoritos-wrapper">
                 <div className="favoritos-list">
                   {Array.isArray(savedAnimes) &&
-                    savedAnimes
+                    Array.from(
+                      new Map(
+                        savedAnimes.map((anime) => [
+                          anime.title_english || anime.title,
+                          anime,
+                        ])
+                      ).values()
+                    )
                       .slice(0, showAll ? savedAnimes.length : 10)
                       .map((savedAnime) => (
                         <AnimeCard key={savedAnime.mal_id} anime={savedAnime} />
