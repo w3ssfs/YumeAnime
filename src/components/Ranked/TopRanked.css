@@ -6,6 +6,9 @@
   margin-top: 50px;
   justify-content: center;
   padding: 20px 0;
+
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
 }
 
 .top-anime-card {
@@ -20,6 +23,8 @@
   cursor: pointer;
   transition: transform 0.3s ease;
   flex-shrink: 0;
+
+  scroll-snap-align: start;
 }
 
 .top-anime-card:hover {
@@ -115,6 +120,10 @@
 @media (max-width: 800px) {
   .top-anime-card:nth-child(3) {
     display: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .top-anime-card {
+    width: 220px;
   }
 }
 

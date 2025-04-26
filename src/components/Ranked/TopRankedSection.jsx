@@ -1,10 +1,12 @@
+import { NavLink } from "react-router-dom";
 import "../Ranked/TopRanked.css";
 
 function TopRankedSection({ topAnimes }) {
   return (
     <div className="top-anime-section">
       {topAnimes.map((anime) => (
-        <div
+        <NavLink
+          to={`/anime/${anime.mal_id}`}
           className="top-anime-card"
           style={{
             backgroundImage: `url(${anime.images.jpg.large_image_url})`,
@@ -22,7 +24,7 @@ function TopRankedSection({ topAnimes }) {
               ))}
             </div>
           </div>
-        </div>
+        </NavLink>
       ))}
     </div>
   );
