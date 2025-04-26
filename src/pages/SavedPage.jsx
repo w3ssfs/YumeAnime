@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState } from "react";
 import AnimeCard from "../components/Anime/AnimeCard";
 import { useQuery } from "@tanstack/react-query";
 import "../components/Perfil/PerfilPage.css";
