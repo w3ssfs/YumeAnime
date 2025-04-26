@@ -106,10 +106,22 @@
 }
 
 .favoritos-list {
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   gap: 15px;
   justify-content: center;
+  padding: 10px 0;
+}
+
+.favoritos-wrapper {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  padding: 0 20px;
 }
 
 .ver-mais:hover {

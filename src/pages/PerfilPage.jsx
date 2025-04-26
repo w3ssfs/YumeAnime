@@ -31,10 +31,10 @@ const PerfilPage = () => {
       <main className="perfil-content">
         <section className="perfil-top-card">
           <img src={userImage} alt="Avatar" className="perfil-avatar-glow" />
-          <h2>W3xs</h2>
-          <p className="perfil-genero">Masculino</p>
-          <button className="perfil-rank-btn">⭐ Senpai</button>
-          <p className="perfil-date">Entrei em: 11 Outubro 2022</p>
+          <h2>user</h2>
+
+          <button className="perfil-rank-btn">⭐ Usuário</button>
+          <p className="perfil-date">Entrei em: 01 Abril 2025</p>
         </section>
 
         <div className="perfil-infos-grid">
@@ -48,7 +48,7 @@ const PerfilPage = () => {
 
           <div className="perfil-box">
             <h3>Estatísticas</h3>
-            <p>📘 124 Animes</p>
+            <p>📘 0 Animes</p>
             <p>❤️ Ação</p>
           </div>
 
@@ -80,13 +80,15 @@ const PerfilPage = () => {
             <p>Erro ao carregar animes salvos.</p>
           ) : (
             <>
-              <div className="favoritos-list">
-                {Array.isArray(savedAnimes) &&
-                  savedAnimes
-                    .slice(0, showAll ? savedAnimes.length : 10)
-                    .map((savedAnimes) => (
-                      <AnimeCard key={savedAnimes.mal_id} anime={savedAnimes} />
-                    ))}
+              <div className="favoritos-wrapper">
+                <div className="favoritos-list">
+                  {Array.isArray(savedAnimes) &&
+                    savedAnimes
+                      .slice(0, showAll ? savedAnimes.length : 10)
+                      .map((savedAnime) => (
+                        <AnimeCard key={savedAnime.mal_id} anime={savedAnime} />
+                      ))}
+                </div>
               </div>
 
               <div className="show-more-btn">
