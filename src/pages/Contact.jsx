@@ -9,9 +9,7 @@ function Contact() {
           <h1 className="terms-title">Contatos</h1>
           <div className="contact-content leading-relaxed space-y-4 text-justify text-base p-4 max-w-4xl mx-auto">
             <p>
-              Para entrar em contacto connosco, envie um email para: Email fora
-              do ar temporariamente <br />
-              Ou então, através do nosso{" "}
+              Para entrar em contato conosco, acesse nosso {" "}
               <a
                 href="https://discord.gg/3YRPzTBQCv"
                 target="_blank"
@@ -20,6 +18,7 @@ function Contact() {
               >
                 Discord
               </a>
+               {" "}!
             </p>
           </div>
         </div>

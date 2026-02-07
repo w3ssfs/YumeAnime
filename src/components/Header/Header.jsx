@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import "./Header.css";
 import { NavLink } from "react-router-dom";
-import userImage from "../../assets/user.png";
 import logoImage from "../../assets/logoYume.png";
 import { FaDiscord, FaSearch, FaEnvelope } from "react-icons/fa";
 import { Menu, X } from "lucide-react";
+
+import { useAuth } from "./../../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -12,9 +14,11 @@ function Header() {
   const toggleMenu = () => setMenuOpen((prev) => !prev);
 
   const closeMenu = () => {
-    setMenuOpen(false); // Fecha o menu
+    setMenuOpen(false); 
   };
 
+  const { user } = useAuth();
+   
   return (
     <header className="main-header">
       <div className="left-section">
@@ -49,13 +53,13 @@ function Header() {
         >
           Salvos
         </NavLink>
-        <NavLink
+        {/* <NavLink
           to="/amigos"
           onClick={closeMenu}
           className={({ isActive }) => (isActive ? "ativo" : "")}
         >
           Amigos
-        </NavLink>
+        </NavLink> */}
         <a
           href="https://discord.gg/3YRPzTBQCv"
           target="_blank"
@@ -82,7 +86,12 @@ function Header() {
         </div>
         <FaEnvelope className="icon envelope-icon" />
         <NavLink to="/perfil">
-          <img src={userImage} alt="Perfil" className="profile-pic" />
+          <img
+            src={user?.photoURL || `https://api.dicebear.com/7.x/identicon/svg?seed=${user?.uid}`}
+            alt="Avatar"
+            className="profile-pic"
+          />
+
         </NavLink>
       </div>
     </header>

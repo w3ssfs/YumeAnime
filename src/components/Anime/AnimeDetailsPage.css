@@ -7,8 +7,8 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   margin: 2rem auto;
   max-width: 1300px;
-
-  width: 100%;
+  outline: none;
+  box-shadow: none;
   box-sizing: border-box;
 
   justify-content: center;
@@ -201,6 +201,60 @@
   color: var(--typography-100);
   text-align: center;
 }
+/* coração */
+.fav-heart {
+  background: transparent !important; 
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 42px;
+  color: #bbb;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.fav-heart:hover {
+  transform: scale(1.15);
+  
+}
+
+.fav-heart.active {
+  color: #ff4d6d;
+  
+}
+
+.fav-heart:focus,
+.fav-heart:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+
+.fav-heart.pop {
+  transform: scale(1.3);
+  
+}
+
+.fav-wrapper {
+  display: flex;
+  justify-content: center;
+  
+
+}
+
+
+
+@keyframes heart-pop {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.4);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
 @media (max-width: 768px) {
   .anime-details-card {
     flex-direction: column;

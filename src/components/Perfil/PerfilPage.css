@@ -43,6 +43,22 @@
   cursor: default;
 }
 
+.btn-logout {
+  background-color: #ef4444;
+  color: #fff;
+  padding: 0.3rem 1rem;
+  border-radius: 10px;
+  border: none;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-logout:hover {
+  background-color: #dc2626;
+}
+
 .perfil-date {
   color: #cbd5e1;
   font-size: 0.9rem;

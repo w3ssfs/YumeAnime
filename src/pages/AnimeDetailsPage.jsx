@@ -1,7 +1,9 @@
 import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import "../components/Anime/AnimeDetailsPage.css";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useAuth } from "../context/AuthContext";
+
 const fetchAnimeDetails = async (id) => {
   const res = await fetch(`https://api.jikan.moe/v4/anime/${id}/full`);
   const data = await res.json();
@@ -9,9 +11,14 @@ const fetchAnimeDetails = async (id) => {
 };
 
 const AnimeDetailsPage = () => {
+  const { id } = useParams();
+
+  const { saveFavorite, removeFavorite, getFavorites } = useAuth();
+  const [isSaved, setIsSaved] = useState(false);
+
+  const [animating, setAnimating] = useState(false);
   const [showTrailer] = useState(false);
 
-  const { id } = useParams();
   const {
     data: anime,
     isLoading,
@@ -20,6 +27,29 @@ const AnimeDetailsPage = () => {
     queryKey: ["anime", id],
     queryFn: () => fetchAnimeDetails(id),
   });
+
+  useEffect(() => {
+    if (!anime) return;
+
+    getFavorites().then((ids) => {
+      setIsSaved(ids.includes(anime.mal_id));
+    });
+  }, [anime]);
+
+  const toggleFavorite = async () => {
+    setAnimating(true);
+
+    if (isSaved) {
+      await removeFavorite(anime.mal_id);
+      setIsSaved(false);
+    } else {
+      await saveFavorite(anime.mal_id);
+      setIsSaved(true);
+    }
+
+    setTimeout(() => setAnimating(false), 300);
+  };
+
 
   if (isLoading) return <p>Carregando...</p>;
   if (error) return <p>Erro ao carregar anime.</p>;
@@ -33,15 +63,29 @@ const AnimeDetailsPage = () => {
 
         <div className="anime-info-box">
           <h1 className="anime-title-pf">
-            {anime.title_english || anime.title_synonyms?.[0] || anime.title}
+            {anime.title_english ||
+              anime.title_synonyms?.[0] ||
+              anime.title}
           </h1>
+
+          <div className="fav-wrapper">
+            <button
+            className={`fav-heart ${isSaved ? "active" : ""} ${animating ? "pop" : ""
+              }`}
+            onClick={toggleFavorite}
+            aria-label="Salvar nos favoritos"
+          >
+            ♥
+          </button>
+          </div>
+          
 
           <div className="anime-info-pf">
             <p>{anime.status}</p>
             <p>
               {anime.season} {new Date(anime.aired.from).getFullYear()}
             </p>
-            <p>{anime.episodes || "? "} eps</p>
+            <p>{anime.episodes || "?"} eps</p>
           </div>
 
           <div className="anime-stats">
@@ -91,11 +135,12 @@ const AnimeDetailsPage = () => {
           <p className="synopsis">{anime.synopsis}</p>
         </div>
       </div>
-      {anime.trailer && anime.trailer.embed_url && (
+
+      {anime.trailer?.embed_url && (
         <div className="trailer-card">
           <iframe
-            className={`trailer-video ${showTrailer ? "show" : ""}`} // Aplica a classe "show" ao iframe
-            src={anime.trailer.embed_url + "?autoplay=1"}
+            className={`trailer-video ${showTrailer ? "show" : ""}`}
+            src={anime.trailer.embed_url}
             title="Trailer"
             allowFullScreen
           ></iframe>

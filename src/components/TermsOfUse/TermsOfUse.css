@@ -1,9 +1,9 @@
 .terms-container {
-  /* min-height: 100vh; */
+ 
   padding: 2rem;
-  margin-top: 150px;
+  margin-top: 50px;
   margin-bottom: 200px;
-  /* background-color: var(--background-100); */
+  
   display: flex;
   justify-content: center;
   align-items: flex-start;

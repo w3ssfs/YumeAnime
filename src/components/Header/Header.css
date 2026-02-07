@@ -4,17 +4,14 @@ body {
 
 .main-header {
   width: 100%;
-  max-width: 1500px;
-  height: 80px;
+  max-width: 1500px; 
   margin: 0 auto;
-  margin-top: 25px;
-  margin-bottom: 30px;
-  padding: 0 20px;
+  padding: 0 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* background-color: var(--background-100); */
-  color: var(--typography-200);
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .center-section .ativo {
@@ -114,7 +111,7 @@ body {
 .menu-toggle {
   display: none;
 }
-@media (max-width: 768px) {
+@media (max-width: 830px) {
   body {
     overflow-x: hidden;
   }

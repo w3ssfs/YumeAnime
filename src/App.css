@@ -126,6 +126,9 @@ body,
 button {
   background-color: var(--background-button-primary-default);
   color: var(--typography-100);
+  /* outline: none !important;
+  box-shadow: none !important;
+  background: none !important; */
 }
 
 button:hover {

@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
 import "./AnimeCard.css";
 
 function AnimeCard({ anime }) {
   const [rotate, setRotate] = useState({ x: 0, y: 0 });
   const [imageLoaded, setImageLoaded] = useState(false);
+
 
   const handleMouseMove = (e) => {
     const { currentTarget, clientX, clientY } = e;
@@ -17,6 +19,9 @@ function AnimeCard({ anime }) {
     const rotateY = (x - centerX) / 20;
     setRotate({ x: rotateX, y: rotateY });
   };
+
+
+
 
   const handleMouseLeave = () => {
     setRotate({ x: 0, y: 0 });
@@ -51,6 +56,14 @@ function AnimeCard({ anime }) {
     return "";
   };
 
+  const imageUrl =
+    anime.images?.jpg?.image_url || anime.image || "";
+    
+  const genres = anime.genres || [];
+
+  
+
+
   return (
     <Link to={`/anime/${anime.mal_id}`} className="anime-card-link">
       <div
@@ -64,10 +77,9 @@ function AnimeCard({ anime }) {
       >
         <div className="anime-img-box">
           <img
-            src={anime.images.jpg.image_url}
+            src={imageUrl}
             alt={anime.title}
             className="anime-img"
-            onLoad={() => setImageLoaded(true)}
           />
           {!imageLoaded && <div className="image-skeleton" />}
           {anime.rating && (
@@ -77,6 +89,7 @@ function AnimeCard({ anime }) {
           )}
         </div>
 
+
         <div className="anime-info">
           <div className="anime-top">
             <span className={`status-badge ${getStatusClass(anime.status)}`}>
@@ -85,6 +98,8 @@ function AnimeCard({ anime }) {
             <p className="episodes">
               {season} {year} • {anime.episodes || "?"} episódios
             </p>
+
+
           </div>
 
           <p className="anime-title">{getShortTitle(anime)}</p>
@@ -120,19 +135,19 @@ function AnimeCard({ anime }) {
           </div>
 
           <div className="genres">
-            {anime.genres.length === 1 ? (
-              <span className="genre">{anime.genres[0].name}</span>
+            {genres.length === 1 ? (
+              <span className="genre">{genres[0].name}</span>
             ) : (
               <>
-                {anime.genres.slice(0, 2).map((genre, i) => (
+                {genres.slice(0, 2).map((genre, i) => (
                   <span key={i} className="genre">
                     {genre.name.length > 7
                       ? genre.name.slice(0, 7) + "..."
                       : genre.name}
                   </span>
                 ))}
-                {anime.genres.length > 2 && (
-                  <span className="genre">+{anime.genres.length - 2}</span>
+                {genres.length > 2 && (
+                  <span className="genre">+{genres.length - 2}</span>
                 )}
               </>
             )}

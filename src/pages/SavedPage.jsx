@@ -1,80 +1,103 @@
-import React, { useState } from "react";
+import { useEffect, useState } from "react";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../services/firebase";
+import { useAuth } from "../context/AuthContext";
 import AnimeCard from "../components/Anime/AnimeCard";
-import { useQuery } from "@tanstack/react-query";
-import "../components/Perfil/PerfilPage.css";
-
-const fetchAnimesThisYear = async () => {
-  const res = await fetch(
-    "https://api.jikan.moe/v4/anime?start_date=2025-01-01&end_date=2025-12-31"
-  );
-  const data = await res.json();
-  return data.data;
-};
+import "./SavedPage.css"; 
 
 const SavedPage = () => {
-  const [showAll, setShowAll] = useState(false);
+  const { user } = useAuth();
+  const [favorites, setFavorites] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  const {
-    data: savedAnimes = [],
-    isLoading,
-    error,
-  } = useQuery({
-    queryKey: ["saved-animes-this-year"],
-    queryFn: fetchAnimesThisYear,
-    staleTime: 1000 * 60 * 5,
-  });
+  useEffect(() => {
+    if (!user) return;
 
-  const displayedAnimes = showAll ? savedAnimes : savedAnimes.slice(0, 15);
+    const fetchFavorites = async () => {
+      try {
+        
+        const ref = collection(db, "users", user.uid, "favorites");
+        const snap = await getDocs(ref);
 
-  const handleShowMore = () => {
-    setShowAll(true);
-  };
+        const ids = snap.docs
+          .map((doc) => doc.data()?.mal_id)
+          .filter(Boolean);
 
-  const handleShowLess = () => {
-    setShowAll(false);
-  };
+        if (ids.length === 0) {
+          setFavorites([]);
+          return;
+        }
+
+        
+        const animes = await Promise.all(
+          ids.map(async (id) => {
+            try {
+              const res = await fetch(`https://api.jikan.moe/v4/anime/${id}`);
+              const json = await res.json();
+              return json?.data ?? null;
+            } catch {
+              return null;
+            }
+          })
+        );
+
+        setFavorites(animes.filter(Boolean));
+      } catch (err) {
+        console.error("Erro ao carregar favoritos:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchFavorites();
+  }, [user]);
+
+  if (loading) {
+    return (
+      <div className="saved-center">
+        <p className="saved-loading">Carregando seus favoritos… ✨</p>
+      </div>
+    );
+  }
+
+  if (favorites.length === 0) {
+    return (
+      <div className="saved-center">
+        <div className="saved-empty">
+          <span className="heart">♡</span>
+          <h2>Nenhum anime salvo ainda</h2>
+          <p>
+            Quando você encontrar um anime especial,<br />
+            clique no ❤️ para guardar aqui.
+          </p>
+        </div>
+      </div>
+    );
+  }
 
   return (
-    <div className="perfil-container">
-      <main className="perfil-content">
-        <h2 className="section-title">📚 Animes de 2025</h2>
+    <div className="saved-page">
+      <header className="saved-header">
+        <h1>Favoritos</h1>
+        <p className="saved-stats">
+          Animes salvos: <strong>{favorites.length}</strong>
+        </p>
+      </header>
 
-        {isLoading ? (
-          <p>Carregando...</p>
-        ) : error ? (
-          <p>Erro ao carregar animes.</p>
-        ) : (
-          <div>
-            <div className="favoritos-list">
-              {displayedAnimes.map((anime) => (
-                <AnimeCard key={anime.mal_id} anime={anime} />
-              ))}
-            </div>
+      {loading && <p className="loading">Carregando...</p>}
 
-            {savedAnimes.length > 10 && (
-              <div className="show-more-btn">
-                {showAll ? (
-                  <button
-                    onClick={handleShowLess}
-                    className="perfil-rank-btn"
-                    type="button"
-                  >
-                    Ver Menos
-                  </button>
-                ) : (
-                  <button
-                    onClick={handleShowMore}
-                    className="perfil-rank-btn"
-                    type="button"
-                  >
-                    Ver Mais
-                  </button>
-                )}
-              </div>
-            )}
-          </div>
-        )}
-      </main>
+      {!loading && favorites.length === 0 && (
+        <div className="empty-saved">
+          <h2>💜 Nenhum anime salvo ainda</h2>
+          <p>Quando você salvar um anime, ele aparece aqui.</p>
+        </div>
+      )}
+
+      <div className="favoritos-list">
+        {favorites.map(anime => (
+          <AnimeCard key={anime.mal_id} anime={anime} />
+        ))}
+      </div>
     </div>
   );
 };
