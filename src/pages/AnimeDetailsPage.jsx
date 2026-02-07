@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import "../components/Anime/AnimeDetailsPage.css";
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import { useAuth } from "../context/AuthContext";
 
 const fetchAnimeDetails = async (id) => {
@@ -34,7 +34,7 @@ const AnimeDetailsPage = () => {
     getFavorites().then((ids) => {
       setIsSaved(ids.includes(anime.mal_id));
     });
-  }, [anime]);
+  }, [anime, getFavorites]);
 
   const toggleFavorite = async () => {
     setAnimating(true);
