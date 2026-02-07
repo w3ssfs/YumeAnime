@@ -1,4 +1,3 @@
-import userImage from "../assets/user.png";
 import "../components/Perfil/PerfilPage.css";
 import { useAuth } from "../context/AuthContext";
 

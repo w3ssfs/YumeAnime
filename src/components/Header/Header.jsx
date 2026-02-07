@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./Header.css";
 import { NavLink } from "react-router-dom";
 import logoImage from "../../assets/logoYume.png";
@@ -6,7 +6,6 @@ import { FaDiscord, FaSearch, FaEnvelope } from "react-icons/fa";
 import { Menu, X } from "lucide-react";
 
 import { useAuth } from "./../../context/AuthContext";
-import { useNavigate } from "react-router-dom";
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);

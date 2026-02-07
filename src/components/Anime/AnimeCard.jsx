@@ -1,11 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { useAuth } from "../../context/AuthContext";
 import "./AnimeCard.css";
 
 function AnimeCard({ anime }) {
   const [rotate, setRotate] = useState({ x: 0, y: 0 });
-  const [imageLoaded, setImageLoaded] = useState(false);
+  const [imageLoaded] = useState(false);
 
 
   const handleMouseMove = (e) => {
